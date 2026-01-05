@@ -1,0 +1,87 @@
+<!-- <nav class="fixed top-0 w-full z-50 transition-all duration-300" [ngClass]="{
+    'bg-transparent': !isScrolled,
+    'bg-slate-700 shadow-lg': isScrolled
+  }">
+    <div class="flex items-center justify-between px-10 py-4 text-white">
+        <div class="font-bold tracking-widest">LOGO</div>
+        <ul class="hidden md:flex gap-8 text-sm tracking-wider">
+            <li><a href="#home" class="hover:opacity-70">HOME</a></li>
+            <li><a href="#about" class="hover:opacity-70">ABOUT</a></li>
+            <li><a href="#work" class="hover:opacity-70">WORK</a></li>
+            <li><a href="#contact" class="hover:opacity-70">CONTACT</a></li>
+        </ul>
+        <div class="hidden md:flex gap-4 text-white text-sm tracking-widest">
+            <a href="https://github.com/yourusername" target="_blank" class="hover:opacity-70">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/yourusername" target="_blank" class="hover:opacity-70">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/yourusername" target="_blank" class="hover:opacity-70">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <button class="md:hidden text-sm tracking-widest" (click)="toggleMenu()">
+            MENU
+        </button>
+    </div>
+
+    <div class="md:hidden bg-[#1f4d78] overflow-hidden transition-all duration-300" [class.max-h-96]="menuOpen"
+        [class.max-h-0]="!menuOpen">
+
+        <a href="#home" class="block py-4 text-center text-white border-b border-white/20"
+            (click)="closeMenu()">HOME</a>
+        <a href="#about" class="block py-4 text-center text-white border-b border-white/20"
+            (click)="closeMenu()">ABOUT</a>
+        <a href="#work" class="block py-4 text-center text-white border-b border-white/20"
+            (click)="closeMenu()">WORK</a>
+        <a href="#contact" class="block py-4 text-center text-white" (click)="closeMenu()">CONTACT</a>
+    </div>
+</nav> -->
+
+<nav class="cd-vertical-nav fixed left-0 top-0 h-screen w-[90px] z-50">
+    <ul class="h-full flex flex-col items-center justify-center gap-8">
+        <li>
+            <a (click)="scrollTo('home')" class="nav-link home active">
+                <span class="label">Home</span>
+            </a>
+        </li>
+        <li>
+            <a (click)="scrollTo('about')" class="nav-link about">
+                <span class="label">About</span>
+            </a>
+        </li>
+        <li>
+            <a (click)="scrollTo('what-i-do')" class="nav-link what-i-do">
+                <span class="label">What I Do</span>
+            </a>
+        </li>
+        <li>
+            <a (click)="scrollTo('skills')" class="nav-link skills">
+                <span class="label">Skills</span>
+            </a>
+        </li>
+        <li>
+            <a (click)="scrollTo('education')" class="nav-link education">
+                <span class="label">Education</span>
+            </a>
+        </li>
+        <li>
+            <a (click)="scrollTo('experience')" class="nav-link experience">
+                <span class="label">Experience</span>
+            </a>
+        </li>
+        <li>
+            <a (click)="scrollTo('recent-work')" class="nav-link recent-work">
+                <span class="label">Recent Work</span>
+            </a>
+        </li>
+        <li>
+            <a (click)="scrollTo('contact')" class="nav-link contact">
+                <span class="label">Contact</span>
+            </a>
+        </li>
+
+    </ul>
+</nav>

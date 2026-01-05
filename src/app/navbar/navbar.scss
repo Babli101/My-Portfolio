@@ -1,0 +1,141 @@
+// VARIABLES
+$bg-dark: rgba(0, 0, 0, 0.8);
+$text-light: #eaf2e3;
+$accent: #c0a672;
+
+// Individual colors for each section (excluding home for image)
+$colors: (
+  about: #feca57,
+  what-i-do: #48dbfb,
+  skills: #1dd1a1,
+  education: #5f27cd,
+  experience: #ff9ff3,
+  recent-work: #54a0ff,
+  contact: #ff793f
+);
+
+.cd-vertical-nav {
+  display: table;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 50;
+  background: transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $bg-dark;
+    transform: translateX(-100%);
+    transition: transform 0.4s;
+  }
+
+  &:hover::before {
+    transform: translateX(0);
+  }
+
+  ul {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .nav-link {
+    position: relative;
+    display: block;
+    padding-top: 3em;
+    font-size: 1.1rem;
+    color: $text-light;
+    text-decoration: none;
+
+    &.active {
+      color: $accent;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 0.4s ease;
+    }
+
+    // DOT
+    &::before {
+      top: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: $text-light;
+      transform: translateX(-50%) scale(0.25);
+      background-size: cover;
+      background-position: center;
+    }
+
+    // ICON PLACEHOLDER
+    &::after {
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      opacity: 0;
+      transform: translateX(-50%) scale(0);
+    }
+
+    // Home dot with logo
+    // Home dot with logo
+    &.home::before {
+      background: url('/assets/logo-1.png') no-repeat center center;
+      background-size: cover;
+      border-radius: 50%;
+      width: 48px; // increased from 32px
+      height: 48px; // increased from 32px
+      transform: translateX(-50%) scale(0.5); // start bigger
+      transition: transform 0.4s ease;
+    }
+
+    // On hover / active, enlarge the dot
+    &.home.active::before,
+    &.home:hover::before {
+      transform: translateX(-50%) scale(1); // full size on hover/active
+    }
+
+    // Other section dots colors
+    @each $section, $color in $colors {
+      &.#{$section}::before {
+        background: $color;
+      }
+
+      &.#{$section}.active,
+      &.#{$section}:hover {
+        color: $color;
+
+        &::before {
+          transform: translateX(-50%) scale(1);
+        }
+      }
+    }
+
+    &:hover,
+    &.active {
+      &::after {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+      }
+
+      .label {
+        transform: translateX(0);
+      }
+    }
+
+    .label {
+      display: block;
+      font-size: 14px;
+      transform: translateX(-120%);
+      transition: transform 0.4s;
+      white-space: nowrap;
+    }
+  }
+}

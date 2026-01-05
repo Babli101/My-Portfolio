@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<button
+  class="back-to-top"
+  *ngIf="showBackToTop"
+  (click)="scrollToTop()"
+  aria-label="Back to Top"
+>
+  ↑
+</button>
+
+<app-footer></app-footer>
