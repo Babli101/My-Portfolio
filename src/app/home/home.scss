@@ -92,9 +92,6 @@
   display: flex;
   justify-content: center;
 
-  @media (min-width: 768px) {
-    justify-content: flex-end;
-  }
 
  .home-image-box {
   background: #fff;
@@ -103,11 +100,6 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   border: 4px solid #f9a8d4; // pink-200
   transform: scale(0.8);
-  opacity: 0;
-
-  // Combined pop + float animation
-  animation: popFloat 4s ease-in-out forwards; // FORWARDS is important!
-  animation-delay: 1s;
 }
 
   .home-image {

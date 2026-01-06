@@ -3,8 +3,9 @@ import {
   AfterViewInit,
   ElementRef,
   ViewChild,
-  OnDestroy
+  OnDestroy, Inject, PLATFORM_ID
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,17 @@ import {
   styleUrls: ['./home.scss'],
 })
 export class Home implements AfterViewInit, OnDestroy {
-
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+async ngOnInit(): Promise<void> {
+    if (isPlatformBrowser(this.platformId)) {
+      const AOS = (await import('aos')).default;
+      AOS.init({
+        duration: 1500,
+        easing: 'ease-in-out',
+        once: true,
+      });
+    }
+  }
   @ViewChild('track') track!: ElementRef<HTMLDivElement>;
 
   index = 0;
